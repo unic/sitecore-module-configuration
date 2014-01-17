@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <authors>$author$</authors>
+    <owners>Tobias Studer</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A rule based configuration framework for Sitecore</description>
+    <releaseNotes>Alpha release.</releaseNotes>
+    <copyright>$copyright$</copyright>
+    <tags>Sitecore Unic Configuration</tags>
+  </metadata>
+  <files>
+	<file src="..\..\synchronization\**\*.*" target="synchronization" />
+  </files>
+</package>
