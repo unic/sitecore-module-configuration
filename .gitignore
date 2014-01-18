@@ -152,16 +152,6 @@ $RECYCLE.BIN/
 # Mac crap
 .DS_Store
 
-# NuGetGallery Specific Ignores
-src/NuGetGallery/App_Data/Files/Packages
-src/NuGetGallery/App_Data/Files/Downloads
-src/NuGetGallery/App_Data/Files/Uploads
-src/NuGetGallery/App_Data/Mail
-src/NuGetGallery/App_Data/Lucene
-!src/NuGetGallery/Views/Packages/
-!src/NuGetGallery.Operations/Tasks/Backups/
-!src/NuGetGallery.Cloud/*Content/bin
-
 # Kudu build folder
 build/artifacts/
 
@@ -171,4 +161,3 @@ build/artifacts/
 
 # Exclude Azure Publish Profiles
 *.pubxml
-lib/
