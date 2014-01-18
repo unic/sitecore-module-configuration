@@ -3,11 +3,13 @@
   <metadata>
     <id>$id$</id>
     <version>$version$</version>
-    <authors>$author$</authors>
-    <owners>Tobias Studer</owners>
+    <authors>Tobias Studer</authors>
+    <owners>Unic AG</owners>
+    <projectUrl>https://git.unic.com/projects/BUECS/repos/sitecore-module-configuration/</projectUrl>
+    <iconUrl>https://www.unic.com/img/unic-logo.jpg</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A rule based configuration framework for Sitecore</description>
-    <releaseNotes>Alpha release.</releaseNotes>
+    <releaseNotes>Alpha release</releaseNotes>
     <copyright>$copyright$</copyright>
     <tags>Sitecore Unic Configuration</tags>
   </metadata>
