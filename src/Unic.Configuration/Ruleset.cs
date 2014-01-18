@@ -40,11 +40,6 @@
         /// The configurations.
         /// </summary>
         private IDictionary<Type, IConfiguration> configurations;
-        
-        /// <summary>
-        /// The fallback ruleset.
-        /// </summary>
-        private IRuleset fallbackRuleset;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Ruleset" /> class.
@@ -155,20 +150,6 @@
         }
 
         /// <summary>
-        /// Gets the fallback ruleset.
-        /// </summary>
-        /// <value>
-        /// The fallback ruleset.
-        /// </value>
-        public IRuleset FallbackRuleset
-        {
-            get
-            {
-                return this.fallbackRuleset ?? (this.fallbackRuleset = this.GetFallbackRuleset());
-            }
-        }
-
-        /// <summary>
         /// If the configurations are loaded and the collection does not contain a specific type of 
         /// configuration, the validation can be skipped. No value will be found.
         /// </summary>
@@ -248,21 +229,6 @@
             }
 
             return configs;
-        }
-
-        /// <summary>
-        /// Gets the fallback ruleset.
-        /// </summary>
-        /// <returns>The fallback ruleset.</returns>
-        protected virtual IRuleset GetFallbackRuleset()
-        {
-            var fallbackId = this.item["Fallback Ruleset"];
-            if (string.IsNullOrWhiteSpace(fallbackId)) return null;
-
-            var fallbackItem = this.item.Database.GetItem(fallbackId);
-
-            Log.Debug("Loading new fallback ruleset: " + fallbackItem.Name, this);
-            return new Ruleset(fallbackItem, this.ConfigurationManager);
         }
 
         /// <summary>

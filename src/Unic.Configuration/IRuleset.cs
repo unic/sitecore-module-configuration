@@ -42,14 +42,6 @@ namespace Unic.Configuration
         bool IsValid { get; }
 
         /// <summary>
-        /// Gets the fallback ruleset.
-        /// </summary>
-        /// <value>
-        /// The fallback ruleset.
-        /// </value>
-        IRuleset FallbackRuleset { get; }
-
-        /// <summary>
         /// If the configurations are loaded and the collection does not contain a specific type of 
         /// configuration, the validation can be skipped. No value will be found.
         /// </summary>
