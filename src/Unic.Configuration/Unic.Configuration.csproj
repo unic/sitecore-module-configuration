@@ -79,6 +79,7 @@
     <Compile Include="Rules\Actions\ConfigurationAction.cs" />
     <Compile Include="Rules\ConfigurationRuleContext.cs" />
     <Compile Include="Rules\ConfigurationRuleList.cs" />
+    <Compile Include="Shell\Applications\ContentEditor\FieldTypes\QueryableTreeList.cs" />
     <Compile Include="TypeResolver.cs" />
     <Compile Include="Rules\IRuleValidator.cs" />
     <Compile Include="Rules\RuleValidator.cs" />

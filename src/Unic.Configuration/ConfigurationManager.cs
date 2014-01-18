@@ -499,8 +499,7 @@
                 return configuration;
             }
 
-            // TODO (TSt): Remove fallback ruleset implementation
-            return ruleset.FallbackRuleset != null ? this.GetConfiguration(func, ruleset.FallbackRuleset) : null;
+            return null;
         }
 
         /// <summary>
