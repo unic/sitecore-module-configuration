@@ -15,5 +15,6 @@
   </metadata>
   <files>
 	<file src="..\..\synchronization\**\*.*" target="synchronization" />
+	<file src="..\Unic.Configuration.Net40\bin\Release\*.Net40.*" target="lib/net40" />
   </files>
 </package>
