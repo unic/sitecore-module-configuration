@@ -29,7 +29,7 @@
         {
             get
             {
-                var templateIds = ReadAppSettings("RootItem.TemplateIds");
+                var templateIds = ReadAppSettings("RootItem.TemplateIds", "{81C9B5BF-567C-4336-BB6C-3DF484031418}");
                 return templateIds.Split(Separators, StringSplitOptions.RemoveEmptyEntries);
             }
         }
@@ -42,7 +42,7 @@
         /// </value>
         public string RulesetTemplateId
         {
-            get { return ReadAppSettings("Ruleset.TemplateId"); }
+            get { return ReadAppSettings("Ruleset.TemplateId", "{ECD7572D-1361-414C-A5B6-D00D2C5BA9A3}"); }
         }
 
         /// <summary>
@@ -53,7 +53,7 @@
         /// </value>
         public string RulesetContainerTemplateId
         {
-            get { return ReadAppSettings("RulesetContainer.TemplateId"); }
+            get { return ReadAppSettings("RulesetContainer.TemplateId", "{FCC80608-BEC1-4683-A0DF-30070C2C6E5F}"); }
         }
 
         /// <summary>
@@ -64,7 +64,7 @@
         /// </value>
         public string ConfigurationTemplateId
         {
-            get { return ReadAppSettings("Configuration.TemplateId"); }
+            get { return ReadAppSettings("Configuration.TemplateId", "{CF1CA8D4-A6D0-43D0-AFB2-AD7D72AB9997}"); }
         }
 
         /// <summary>
@@ -82,10 +82,13 @@
         /// Reads the app settings.
         /// </summary>
         /// <param name="key">The key.</param>
-        /// <returns>The app setting for the key.</returns>
-        public static string ReadAppSettings(string key)
+        /// <param name="defaultValue">The default value.</param>
+        /// <returns>
+        /// The app setting for the key.
+        /// </returns>
+        public static string ReadAppSettings(string key, string defaultValue = "")
         {
-            return ReadAppSettings(key, value => value);
+            return ReadAppSettings(key, value => value) ?? defaultValue;
         }
 
         /// <summary>
