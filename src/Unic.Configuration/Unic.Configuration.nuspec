@@ -14,7 +14,7 @@
     <tags>Sitecore Unic Configuration</tags>
   </metadata>
   <files>
-	<file src="..\..\synchronization\**\*.*" target="synchronization" />
+	<file src="..\..\serialization\**\*.*" target="serialization" />
 	<file src="..\Unic.Configuration.Net40\bin\$configuration$\*.Net40.*" target="lib/net40" />
   </files>
 </package>
