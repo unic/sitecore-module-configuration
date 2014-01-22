@@ -40,7 +40,7 @@
     </Reference>
     <Reference Include="Sitecore.Kernel, Version=7.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Unic.Framework\lib\Sitecore\net45\Sitecore.Kernel.dll</HintPath>
+      <HintPath>..\..\lib\Sitecore\net45\Sitecore.Kernel.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
