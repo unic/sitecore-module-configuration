@@ -148,7 +148,7 @@
                 // assert
                 Assert.NotNull(objectConverter);
                 Assert.IsInstanceOf<TestableObjectConverter>(objectConverter);
-                Assert.IsAssignableFrom<AbstractConverter<object>>(objectConverter);
+                Assert.IsInstanceOf<AbstractConverter<object>>(objectConverter);
             }
 
             [Test]
@@ -171,7 +171,7 @@
                 // assert
                 Assert.NotNull(newConverter);
                 Assert.IsInstanceOf<TestableStringConverter>(newConverter);
-                Assert.IsAssignableFrom<AbstractConverter<string>>(newConverter);
+                Assert.IsInstanceOf<AbstractConverter<string>>(newConverter);
             }
 
             private class TestableObjectConverter : AbstractConverter<object>
