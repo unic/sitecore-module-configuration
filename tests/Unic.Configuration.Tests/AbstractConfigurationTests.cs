@@ -1,16 +1,16 @@
-﻿namespace Unic.Configuration.Facts
+﻿namespace Unic.Configuration.Tests
 {
     using System;
     using Moq;
+    using NUnit.Framework;
     using Unic.Configuration.Converter;
-    using Xunit;
-    using Xunit.Extensions;
 
-    public class AbstractConfigurationFacts
+    public class AbstractConfigurationTests
     {
+        [TestFixture]
         public class AddValueMethod
         {
-            [Fact]
+            [Test]
             public void CanSetStringValueOnStringProperty()
             {
                 // arrange
@@ -25,10 +25,10 @@
                 testableConfiguration.AddValue(testProperty, new ConfigurationField(), converterMock.Object);
 
                 // assert
-                Assert.Equal("Test Value", testableConfiguration.TestProperty);
+                Assert.AreEqual("Test Value", testableConfiguration.TestProperty);
             }
 
-            [Fact]
+            [Test]
             public void CannotSetIntValueOnStringProperty()
             {
                 // arrange
@@ -46,7 +46,7 @@
 
         public class HasValueForMethod
         {
-            [Fact]
+            [Test]
             public void ReturnsFalseWhenNoValueIsAdded()
             {
                 // arrange
@@ -59,7 +59,7 @@
                 Assert.False(hasValue);
             }
 
-            [Fact]
+            [Test]
             public void ReturnsTrueWhenValueIsAdded()
             {
                 // arrange
@@ -78,12 +78,10 @@
                 Assert.True(hasValue);
             }
 
-            [Theory, 
-            InlineData("Test Value", true),
-            InlineData("", false),
-            InlineData(null, false)
-            ]
-            public void ChecksConfigurationFieldValue(string fieldValue, bool expected)
+            [TestCase("Test Value", Result = true)]
+            [TestCase("", Result = false)]
+            [TestCase(null, Result = false)]
+            public bool ChecksConfigurationFieldValue(string fieldValue)
             {
                 // arrange
                 var converterMock = new Mock<AbstractConverter<string>>();
@@ -98,7 +96,7 @@
                 var hasValue = testableConfiguration.HasValueFor<TestableConfiguration, string>(p => p.TestProperty);
 
                 // assert
-                Assert.Equal(hasValue, expected);
+                return hasValue;
             }
         }
 

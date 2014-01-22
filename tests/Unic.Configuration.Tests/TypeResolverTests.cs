@@ -1,12 +1,13 @@
-﻿namespace Unic.Configuration.Facts
+﻿namespace Unic.Configuration.Tests
 {
-    using Xunit;
+    using NUnit.Framework;
 
-    public class TypeResolverFacts
+    public class TypeResolverTests
     {
+        [TestFixture]
         public class ConfigurationProperty
         {
-            [Fact]
+            [Test]
             public void ReturnsTheSameInstance()
             {
                 // act
@@ -14,10 +15,10 @@
                 var configurationManager2 = TypeResolver.Configuration;
 
                 // assert
-                Assert.Same(configurationManager1, configurationManager2);
+                Assert.AreSame(configurationManager1, configurationManager2);
             }
 
-            [Fact]
+            [Test]
             public void DoesNotReturnNull()
             {
                 // act
@@ -31,7 +32,7 @@
 
     public class SettingsProperty
     {
-        [Fact]
+        [Test]
         public void ReturnsTheSameInstance()
         {
             // act
@@ -39,10 +40,10 @@
             var settings2 = TypeResolver.Settings;
 
             // assert
-            Assert.Same(settings1, settings2);
+            Assert.AreSame(settings1, settings2);
         }
 
-        [Fact]
+        [Test]
         public void DoesNotReturnNull()
         {
             // act

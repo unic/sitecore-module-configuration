@@ -1,14 +1,15 @@
-﻿namespace Unic.Configuration.Facts.Rules.Actions
+﻿namespace Unic.Configuration.Tests.Rules.Actions
 {
+    using NUnit.Framework;
     using Unic.Configuration.Rules;
     using Unic.Configuration.Rules.Actions;
-    using Xunit;
 
-    public class ConfigurationActionFacts
+    public class ConfigurationActionTests
     {
+        [TestFixture]
         public class TheApplyMethod
         {
-            [Fact]
+            [Test]
             public void SetsRuleContextAsValid()
             {
                 // arrange
