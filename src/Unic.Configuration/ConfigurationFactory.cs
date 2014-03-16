@@ -2,7 +2,6 @@
 {
     using System;
     using Sitecore.Data.Items;
-    using Sitecore.Diagnostics;
     using Unic.Configuration.Converter;
 
     /// <summary>
