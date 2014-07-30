@@ -4,7 +4,6 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <TeamCityBuild>false</TeamCityBuild>
     <ProjectGuid>{DAF4DEDE-E1D9-4874-8DD5-846C0DD0B0F8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -33,9 +32,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(TEAMCITY_BUILD_PROPERTIES_FILE)' != ''">
-    <TeamCityBuild>true</TeamCityBuild>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Sitecore.Kernel, Version=7.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -97,11 +93,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <Target Name="TeamCity" AfterTargets="Build" Condition=" '$(TeamCityBuild)'=='true'">
-    <GetAssemblyIdentity AssemblyFiles="obj\$(ConfigurationName)\$(TargetFileName)">
-      <Output TaskParameter="Assemblies" ItemName="AssemblyIdentity" />
-    </GetAssemblyIdentity>
-    <!--<Message Text="##teamcity[buildNumber '%(AssemblyIdentity.Version']" />-->
-    <Message Text="##teamcity[setParameter name='system.semVersion' value='%(AssemblyIdentity.Version)']" />
-  </Target>
 </Project>

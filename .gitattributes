@@ -10,6 +10,3 @@
 *.cmd     text
 *.msbuild text
 *.md      text
-
-# Sitecore serialization fiels should not be nomalized
-*.item    binary
