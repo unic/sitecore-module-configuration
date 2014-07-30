@@ -101,6 +101,6 @@
     <GetAssemblyIdentity AssemblyFiles="obj\$(ConfigurationName)\$(TargetFileName)">
       <Output TaskParameter="Assemblies" ItemName="AssemblyIdentity" />
     </GetAssemblyIdentity>
-    <Message Text="##teamcity[setParameter name='system.semVersion' value='%(AssemblyIdentity.Version.Major).%(AssemblyIdentity.Version.Minor).%(AssemblyIdentity.Version.Build)']" />
+    <Message Text="##teamcity[setParameter name='semVersion' value='%(AssemblyIdentity.Version.Major).%(AssemblyIdentity.Version.Minor).%(AssemblyIdentity.Version.Build)']" />
   </Target>
 </Project>
