@@ -2,7 +2,6 @@
 {
     using System;
     using Sitecore.Data.Items;
-    using Sitecore.Diagnostics;
     using Unic.Configuration.Converter;
 
     /// <summary>
@@ -20,9 +19,6 @@
         /// <returns>The created configuration instance.</returns>
         public static IConfiguration Create(string fullType, Item item)
         {
-            Assert.ArgumentNotNullOrEmpty(fullType, "fullType");
-            Assert.ArgumentNotNull(item, "item");
-
             var type = Type.GetType(fullType);
             if (type == null) return null;
 

@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>$id$</id>
-    <version>$version$</version>
+    <id>Unic.Configuration.Sitecore6</id>
+    <version>0.0.0</version>
     <authors>Tobias Studer</authors>
     <owners>Unic AG</owners>
     <projectUrl>https://git.unic.com/projects/BUECS/repos/sitecore-module-configuration/</projectUrl>
@@ -15,6 +15,5 @@
   </metadata>
   <files>
 	<file src="..\..\serialization\**\*.*" target="serialization" />
-	<file src="..\Unic.Configuration.Net40\bin\$configuration$\*.Net40.*" target="lib/net40" />
   </files>
 </package>

@@ -2,161 +2,156 @@
 {
     using System;
     using System.Collections.Generic;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using NUnit.Framework;
     using Sitecore.Data.Items;
     using Unic.Configuration.Converter;
     using Unic.Configuration.Exceptions;
 
-    public class ConverterFactoryTests
+    public class ConverterFactoryFacts
     {
-        [TestClass]
+        [TestFixture]
         public class TheGetMethod
         {
-            [TestMethod]
+            [Test]
             public void CanFindBooleanConverter()
             {
                 // act
                 var converter = ConverterFactory.Get(typeof(bool));
 
                 // assert
-                Assert.IsInstanceOfType(converter, typeof(BooleanConverter));
+                Assert.IsInstanceOf<BooleanConverter>(converter);
             }
 
-            [TestMethod]
+            [Test]
             public void CanFindConfigurationFieldConverterByInterface()
             {
                 // act
                 var converter = ConverterFactory.Get(typeof(IConfigurationField));
 
                 // assert
-                Assert.IsInstanceOfType(converter, typeof(ConfigurationFieldConverter));
+                Assert.IsInstanceOf<ConfigurationFieldConverter>(converter);
             }
 
-            [TestMethod]
+            [Test]
             public void CanFindConfigurationFieldConverterByClass()
             {
                 // act
                 var converter = ConverterFactory.Get(typeof(ConfigurationField));
 
                 // assert
-                Assert.IsInstanceOfType(converter, typeof(ConfigurationFieldConverter));
+                Assert.IsInstanceOf<ConfigurationFieldConverter>(converter);
             }
 
-            [TestMethod]
+            [Test]
             public void CanFindDateTimeConverter()
             {
                 // act
                 var converter = ConverterFactory.Get(typeof(DateTime));
 
                 // assert
-                Assert.IsInstanceOfType(converter, typeof(DateTimeConverter));
+                Assert.IsInstanceOf<DateTimeConverter>(converter);
             }
 
-            [TestMethod]
+            [Test]
             public void CanFindDoubleConverter()
             {
                 // act
                 var converter = ConverterFactory.Get(typeof(double));
 
                 // assert
-                Assert.IsInstanceOfType(converter, typeof(DoubleConverter));
+                Assert.IsInstanceOf<DoubleConverter>(converter);
             }
 
-            [TestMethod]
+            [Test]
             public void CanFindIntConverter()
             {
                 // act
                 var converter = ConverterFactory.Get(typeof(int));
 
                 // assert
-                Assert.IsInstanceOfType(converter, typeof(IntConverter));
+                Assert.IsInstanceOf<IntConverter>(converter);
             }
 
-            [TestMethod]
+            [Test]
             public void CanFindItemConverter()
             {
                 // act
                 var converter = ConverterFactory.Get(typeof(Item));
 
                 // assert
-                Assert.IsInstanceOfType(converter, typeof(ItemConverter));
+                Assert.IsInstanceOf<ItemConverter>(converter);
             }
 
-            [TestMethod]
+            [Test]
             public void CanFindItemsConverterUsingIEnumerable()
             {
                 // act
                 var converter = ConverterFactory.Get(typeof(IEnumerable<Item>));
 
                 // assert
-                Assert.IsInstanceOfType(converter, typeof(ItemsConverter));
+                Assert.IsInstanceOf<ItemsConverter>(converter);
             }
 
-            [TestMethod]
+            [Test]
             public void CanFindItemsConverterUsingArray()
             {
                 // act
                 var converter = ConverterFactory.Get(typeof(Item[]));
 
                 // assert
-                Assert.IsInstanceOfType(converter, typeof(ItemsConverter));
+                Assert.IsInstanceOf<ItemsConverter>(converter);
             }
 
-            [TestMethod]
+            [Test]
             public void CanFindItemsConverterUsingList()
             {
                 // act
                 var converter = ConverterFactory.Get(typeof(List<Item>));
 
                 // assert
-                Assert.IsInstanceOfType(converter, typeof(ItemsConverter));
+                Assert.IsInstanceOf<ItemsConverter>(converter);
             }
 
-            [TestMethod]
+            [Test]
             public void CanFindStringConverter()
             {
                 // act
                 var converter = ConverterFactory.Get(typeof(string));
 
                 // assert
-                Assert.IsInstanceOfType(converter, typeof(StringConverter));
+                Assert.IsInstanceOf<StringConverter>(converter);
             }
 
-            [TestMethod]
-            [ExpectedException(typeof(ConverterNotFoundException))]
+            [Test]
             public void ThrowsConverterNotFoundExceptionForNotRegisteredDataTypes()
             {
-                // act
-                ConverterFactory.Get(typeof(ConverterFactoryTests));
-
                 // assert
-                Assert.Fail();
+                Assert.Throws<ConverterNotFoundException>(() => ConverterFactory.Get(typeof(ConverterFactoryFacts)));
             }
         }
 
-        [TestClass]
         public class TheRegisterConverterMethod
         {
-            [TestMethod]
-            [ExpectedException(typeof(ConverterNotFoundException))]
+            [Test]
             public void CanRegisterANewConverter()
             {
                 // arrange
                 var converterStub = new TestableObjectConverter();
 
-                // act (should throw exception
-                ConverterFactory.Get(typeof(object));
+                // assert
+                Assert.Throws<ConverterNotFoundException>(() => ConverterFactory.Get(typeof(object)));
 
                 // act
                 ConverterFactory.RegisterConverter(converterStub);
                 var objectConverter = ConverterFactory.Get(typeof(object));
 
                 // assert
-                Assert.IsNotNull(objectConverter);
-                Assert.IsInstanceOfType(objectConverter, typeof(TestableObjectConverter));
+                Assert.NotNull(objectConverter);
+                Assert.IsInstanceOf<TestableObjectConverter>(objectConverter);
+                Assert.IsInstanceOf<AbstractConverter<object>>(objectConverter);
             }
 
-            [TestMethod]
+            [Test]
             public void CanReplaceAConverter()
             {
                 // arrange
@@ -166,16 +161,17 @@
                 var stringConverter = ConverterFactory.Get(typeof(string));
 
                 // assert
-                Assert.IsNotNull(stringConverter);
-                Assert.IsInstanceOfType(stringConverter, typeof(StringConverter));
+                Assert.NotNull(stringConverter);
+                Assert.IsInstanceOf<StringConverter>(stringConverter);
 
                 // act
                 ConverterFactory.RegisterConverter(converterStub);
                 var newConverter = ConverterFactory.Get(typeof(string));
 
                 // assert
-                Assert.IsNotNull(newConverter);
-                Assert.IsInstanceOfType(newConverter, typeof(TestableStringConverter));
+                Assert.NotNull(newConverter);
+                Assert.IsInstanceOf<TestableStringConverter>(newConverter);
+                Assert.IsInstanceOf<AbstractConverter<string>>(newConverter);
             }
 
             private class TestableObjectConverter : AbstractConverter<object>
