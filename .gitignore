@@ -24,6 +24,9 @@ x64/
 [Bb]in/
 [Oo]bj/
 
+# Enable "build/" folder in the NuGet Packages folder since NuGet packages use it for MSBuild targets
+!packages/*/build/
+
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
@@ -151,12 +154,9 @@ $RECYCLE.BIN/
 # Mac crap
 .DS_Store
 
-# Kudu build folder
-build/artifacts/
-
-# Exclude CSCFGs, except the local emulator one
-*.cscfg
-!*.Local*.cscfg
-
-# Exclude Azure Publish Profiles
-*.pubxml
+# =========================
+# Custom
+# =========================
+StyleCop.Cache
+deploy.txt
+*.sitecore
