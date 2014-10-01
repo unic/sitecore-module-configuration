@@ -43,10 +43,13 @@
 
                 // get the configuration attribute
                 var attribute = Attribute.GetCustomAttribute(propertyInfo, typeof(ConfigurationAttribute), true) as ConfigurationAttribute;
-                if (attribute == null || string.IsNullOrWhiteSpace(attribute.FieldName)) continue;
+                
+                // get the field name either from the attribute or the property itself
+                var fieldName = attribute != null ? attribute.FieldName : propertyInfo.Name;
+                if (string.IsNullOrWhiteSpace(fieldName)) continue;
                 
                 // get the configuration field from the item
-                var configurationField = ConfigurationFieldFactory.Create(item, attribute.FieldName);
+                var configurationField = ConfigurationFieldFactory.Create(item, fieldName);
                 if (configurationField == null || !configurationField.HasValue) continue;
 
                 // get the converter based on the return type of the property

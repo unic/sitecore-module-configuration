@@ -127,8 +127,8 @@
         {
             get
             {
-                // only read from cache if enabled
-                if (this.ConfigurationManager.CachingEnabled)
+                // only read from cache if enabled and no switchers are active
+                if (this.ConfigurationManager.CachingEnabled && !this.ConfigurationManager.HasActiveSwitchers)
                 {
                     var cachedResult = false;
                     if (this.GetCachedValidationResult(ref cachedResult)) return cachedResult;
@@ -139,8 +139,8 @@
                 var result = this.ruleValidator.Validate(this.Rules);
                 Log.Debug("Ruleset " + this + " is valid: " + result, this);
 
-                // only write to cache if enabled
-                if (this.ConfigurationManager.CachingEnabled)
+                // only write to cache if enabled and no switchers are active
+                if (this.ConfigurationManager.CachingEnabled && !this.ConfigurationManager.HasActiveSwitchers)
                 {
                     this.AddValidationResultToCache(result);
                 }

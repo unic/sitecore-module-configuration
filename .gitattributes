@@ -10,3 +10,6 @@
 *.cmd     text
 *.msbuild text
 *.md      text
+
+# Sitecore serialization files should not be normalized
+*.item    binary

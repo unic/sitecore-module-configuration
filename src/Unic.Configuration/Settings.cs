@@ -20,6 +20,11 @@
         private static readonly Dictionary<string, Func<object>> ConfigThunks = new Dictionary<string, Func<object>>();
 
         /// <summary>
+        /// The lock object
+        /// </summary>
+        private static readonly object LockObject = new object();
+
+        /// <summary>
         /// Gets the root item template ids.
         /// </summary>
         /// <value>
@@ -75,7 +80,7 @@
         /// </value>
         public string CustomRootRulesetContainerItemId
         {
-            get { return ReadAppSettings("Configuration.CustomRootRulesetContainerItemId"); }
+            get { return ReadAppSettings("Configuration.CustomRootRulesetContainer.ItemId"); }
         }
 
         /// <summary>
@@ -100,26 +105,33 @@
         /// <returns>The app settings for the key.</returns>
         public static T ReadAppSettings<T>(string key, Func<string, T> valueThunk)
         {
-            if (!ConfigThunks.ContainsKey(key))
+            // return fast if possible
+            if (ConfigThunks.ContainsKey(key)) return (T)ConfigThunks[key]();
+
+            // create the configuration in a safe manner
+            lock (LockObject)
             {
-                ConfigThunks.Add(
-                    key,
-                    () =>
-                    {
-                        // in order to support in-flight changes to config, these need to be Func<T>'s, not Lazy<T>'s, which will cache the value
-                        // load from config
-                        var keyName = string.Format(CultureInfo.InvariantCulture, "Config.{0}", key);
-                        var value = System.Configuration.ConfigurationManager.AppSettings[keyName];
+                if (!ConfigThunks.ContainsKey(key))
+                {
+                    ConfigThunks.Add(
+                        key,
+                        () =>
+                            {
+                                // in order to support in-flight changes to config, these need to be Func<T>'s, not Lazy<T>'s, which will cache the value
+                                // load from config
+                                var keyName = string.Format(CultureInfo.InvariantCulture, "Config.{0}", key);
+                                var value = Sitecore.Configuration.Settings.GetSetting(keyName);
 
-                        // coalesce empty values to null
-                        if (string.IsNullOrWhiteSpace(value))
-                        {
-                            value = null;
-                        }
+                                // coalesce empty values to null
+                                if (string.IsNullOrWhiteSpace(value))
+                                {
+                                    value = null;
+                                }
 
-                        // pass the value through the "thunk" which parses the string
-                        return valueThunk(value);
-                    });
+                                // pass the value through the "thunk" which parses the string
+                                return valueThunk(value);
+                            });
+                }
             }
 
             return (T)ConfigThunks[key]();
