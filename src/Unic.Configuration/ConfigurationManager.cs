@@ -20,6 +20,21 @@
     public class ConfigurationManager : IConfigurationManager
     {
         /// <summary>
+        /// The profile get configuration event name
+        /// </summary>
+        private const string ProfileGetConfigurationEventName = "Configuration :: Get Configuration";
+
+        /// <summary>
+        /// The profile get configuration value event name
+        /// </summary>
+        private const string ProfileGetConfigurationValueEventName = "Configuration :: Get Configuration Value";
+
+        /// <summary>
+        /// The profile get root ruleset container event name
+        /// </summary>
+        private const string ProfileGetRootRulesetContainerEventName = "Configuration :: Get Root Ruleset Container";
+
+        /// <summary>
         /// The lock object.
         /// </summary>
         private readonly object lockObject = new object();
@@ -140,11 +155,20 @@
         /// </returns>
         public TValue Get<TType, TValue>(Expression<Func<TType, TValue>> func) where TType : class
         {
+            Profiling.Profiler.OnStart(this, ProfileGetConfigurationEventName);
+
             // get the root ruleset container
+            Profiling.Profiler.OnStart(this, ProfileGetRootRulesetContainerEventName);
             var container = this.GetRootRulesetContainer();
+            Profiling.Profiler.OnEnd(this, ProfileGetRootRulesetContainerEventName);
 
             // get the configuration value
-            return this.GetConfigurationValue(func, container);
+            Profiling.Profiler.OnStart(this, ProfileGetConfigurationValueEventName);
+            var value = this.GetConfigurationValue(func, container);
+            Profiling.Profiler.OnEnd(this, ProfileGetConfigurationValueEventName);
+
+            Profiling.Profiler.OnEnd(this, ProfileGetConfigurationEventName);
+            return value;
         }
 
         /// <summary>
