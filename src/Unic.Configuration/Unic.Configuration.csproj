@@ -52,7 +52,6 @@
     <Compile Include="Exceptions\ConverterNotFoundException.cs" />
     <Compile Include="Exceptions\RootItemNotFoundException.cs" />
     <Compile Include="Exceptions\RulesetContainerNotFoundException.cs" />
-    <Compile Include="Extensions\ConfigurationManagerExtensions.cs" />
     <Compile Include="Extensions\ItemExtensions.cs" />
     <Compile Include="IConfigurationContext.cs" />
     <Compile Include="IConfigurationField.cs" />

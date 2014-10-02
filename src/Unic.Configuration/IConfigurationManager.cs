@@ -9,7 +9,7 @@
     /// The configuration manager interface.
     /// </summary>
     public interface IConfigurationManager
-    {      
+    {
         /// <summary>
         /// Gets the site root item.
         /// </summary>
@@ -38,6 +38,86 @@
         /// Invalidates all configurations.
         /// </summary>
         void InvalidateConfigurations();
+
+        /// <summary>
+        /// Gets the specified configuration value.
+        /// </summary>
+        /// <typeparam name="TType">The type of the configuration.</typeparam>
+        /// <param name="func">The property.</param>
+        /// <returns>
+        /// The configuration value.
+        /// </returns>
+        string Get<TType>(Expression<Func<TType, string>> func) where TType : class;
+
+        /// <summary>
+        /// Gets the specified configuration value.
+        /// </summary>
+        /// <typeparam name="TType">The type of the configuration.</typeparam>
+        /// <param name="func">The property.</param>
+        /// <returns>
+        /// The configuration value.
+        /// </returns>
+        bool Get<TType>(Expression<Func<TType, bool>> func) where TType : class;
+
+        /// <summary>
+        /// Gets the specified configuration value.
+        /// </summary>
+        /// <typeparam name="TType">The type of the configuration.</typeparam>
+        /// <param name="func">The property.</param>
+        /// <returns>
+        /// The configuration value.
+        /// </returns>
+        int Get<TType>(Expression<Func<TType, int>> func) where TType : class;
+
+        /// <summary>
+        /// Gets the specified configuration value.
+        /// </summary>
+        /// <typeparam name="TType">The type of the configuration.</typeparam>
+        /// <param name="func">The property.</param>
+        /// <returns>
+        /// The configuration value.
+        /// </returns>
+        double Get<TType>(Expression<Func<TType, double>> func) where TType : class;
+
+        /// <summary>
+        /// Gets the specified configuration value.
+        /// </summary>
+        /// <typeparam name="TType">The type of the configuration.</typeparam>
+        /// <param name="func">The property.</param>
+        /// <returns>
+        /// The configuration value.
+        /// </returns>
+        DateTime Get<TType>(Expression<Func<TType, DateTime>> func) where TType : class;
+
+        /// <summary>
+        /// Gets the specified configuration value.
+        /// </summary>
+        /// <typeparam name="TType">The type of the configuration.</typeparam>
+        /// <param name="func">The property.</param>
+        /// <returns>
+        /// The configuration value.
+        /// </returns>
+        Item Get<TType>(Expression<Func<TType, Item>> func) where TType : class;
+
+        /// <summary>
+        /// Gets the specified configuration value.
+        /// </summary>
+        /// <typeparam name="TType">The type of the configuration.</typeparam>
+        /// <param name="func">The property.</param>
+        /// <returns>
+        /// The configuration value.
+        /// </returns>
+        IEnumerable<Item> Get<TType>(Expression<Func<TType, IEnumerable<Item>>> func) where TType : class;
+
+        /// <summary>
+        /// Gets the specified configuration field.
+        /// </summary>
+        /// <typeparam name="TType">The type of the configuration.</typeparam>
+        /// <param name="func">The property.</param>
+        /// <returns>
+        /// The configuration field.
+        /// </returns>
+        IConfigurationField Get<TType>(Expression<Func<TType, IConfigurationField>> func) where TType : class;
 
         /// <summary>
         /// Gets the specified configuration value.
