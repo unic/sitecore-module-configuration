@@ -42,13 +42,19 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
+    <Reference Include="Unic.Profiling, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Unic.Profiling.1.1.0\lib\net40\Unic.Profiling.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigurationFieldFactory.cs" />
     <Compile Include="Exceptions\ConverterNotFoundException.cs" />
     <Compile Include="Exceptions\RootItemNotFoundException.cs" />
     <Compile Include="Exceptions\RulesetContainerNotFoundException.cs" />
+    <Compile Include="Extensions\ConfigurationManagerExtensions.cs" />
     <Compile Include="Extensions\ItemExtensions.cs" />
+    <Compile Include="IConfigurationContext.cs" />
     <Compile Include="IConfigurationField.cs" />
     <Compile Include="IConfigurationManager.cs" />
     <Compile Include="IRuleset.cs" />
@@ -80,10 +86,14 @@
     <Compile Include="Rules\ConfigurationRuleContext.cs" />
     <Compile Include="Rules\ConfigurationRuleList.cs" />
     <Compile Include="Shell\Applications\ContentEditor\FieldTypes\QueryableTreeList.cs" />
+    <Compile Include="SitecoreConfigurationContext.cs" />
     <Compile Include="TypeResolver.cs" />
     <Compile Include="Rules\IRuleValidator.cs" />
     <Compile Include="Rules\RuleValidator.cs" />
     <Compile Include="Settings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
