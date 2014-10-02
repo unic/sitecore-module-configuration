@@ -30,6 +30,11 @@
         private readonly Settings settings;
 
         /// <summary>
+        /// The configuration context
+        /// </summary>
+        private readonly IConfigurationContext configurationContext;
+
+        /// <summary>
         /// The root ruleset containers.
         /// </summary>
         private IDictionary<string, IRulesetContainer> rootRulesetContainers;
@@ -37,16 +42,26 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="ConfigurationManager" /> class.
         /// </summary>
-        public ConfigurationManager() : this(TypeResolver.Settings)
+        public ConfigurationManager() : this(new SitecoreConfigurationContext(), TypeResolver.Settings)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ConfigurationManager"/> class.
+        /// </summary>
+        /// <param name="configurationContext">The configuration context.</param>
+        public ConfigurationManager(IConfigurationContext configurationContext) : this(configurationContext, TypeResolver.Settings)
         {
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ConfigurationManager" /> class.
         /// </summary>
+        /// <param name="configurationContext">The configuration context.</param>
         /// <param name="settings">The settings.</param>
-        public ConfigurationManager(Settings settings)
+        public ConfigurationManager(IConfigurationContext configurationContext, Settings settings)
         {
+            this.configurationContext = configurationContext;
             this.settings = settings;
             this.CachingEnabled = true;
         }
@@ -112,110 +127,6 @@
             }
 
             Log.Info("Configuration cache cleared", this);
-        }
-
-        /// <summary>
-        /// Gets the specified configuration value.
-        /// </summary>
-        /// <typeparam name="TType">The type of the configuration.</typeparam>
-        /// <param name="func">The property.</param>
-        /// <returns>
-        /// The configuration value.
-        /// </returns>
-        public string Get<TType>(Expression<Func<TType, string>> func) where TType : class
-        {
-            return this.Get<TType, string>(func);
-        }
-
-        /// <summary>
-        /// Gets the specified configuration value.
-        /// </summary>
-        /// <typeparam name="TType">The type of the configuration.</typeparam>
-        /// <param name="func">The property.</param>
-        /// <returns>
-        /// The configuration value.
-        /// </returns>
-        public bool Get<TType>(Expression<Func<TType, bool>> func) where TType : class
-        {
-            return this.Get<TType, bool>(func);
-        }
-
-        /// <summary>
-        /// Gets the specified configuration value.
-        /// </summary>
-        /// <typeparam name="TType">The type of the configuration.</typeparam>
-        /// <param name="func">The property.</param>
-        /// <returns>
-        /// The configuration value.
-        /// </returns>
-        public int Get<TType>(Expression<Func<TType, int>> func) where TType : class
-        {
-            return this.Get<TType, int>(func);
-        }
-
-        /// <summary>
-        /// Gets the specified configuration value.
-        /// </summary>
-        /// <typeparam name="TType">The type of the configuration.</typeparam>
-        /// <param name="func">The property.</param>
-        /// <returns>
-        /// The configuration value.
-        /// </returns>
-        public double Get<TType>(Expression<Func<TType, double>> func) where TType : class
-        {
-            return this.Get<TType, double>(func);
-        }
-
-        /// <summary>
-        /// Gets the specified configuration value.
-        /// </summary>
-        /// <typeparam name="TType">The type of the configuration.</typeparam>
-        /// <param name="func">The property.</param>
-        /// <returns>
-        /// The configuration value.
-        /// </returns>
-        public DateTime Get<TType>(Expression<Func<TType, DateTime>> func) where TType : class
-        {
-            return this.Get<TType, DateTime>(func);
-        }
-
-        /// <summary>
-        /// Gets the specified configuration value.
-        /// </summary>
-        /// <typeparam name="TType">The type of the configuration.</typeparam>
-        /// <param name="func">The property.</param>
-        /// <returns>
-        /// The configuration value.
-        /// </returns>
-        public Item Get<TType>(Expression<Func<TType, Item>> func) where TType : class
-        {
-            return this.Get<TType, Item>(func);
-        }
-
-        /// <summary>
-        /// Gets the specified configuration value.
-        /// </summary>
-        /// <typeparam name="TType">The type of the configuration.</typeparam>
-        /// <param name="func">The property.</param>
-        /// <returns>
-        /// The configuration value.
-        /// </returns>
-        public IEnumerable<Item> Get<TType>(Expression<Func<TType, IEnumerable<Item>>> func) where TType : class
-        {
-            return this.Get<TType, IEnumerable<Item>>(func) ?? Enumerable.Empty<Item>();
-        }
-
-        /// <summary>
-        /// Gets the specified configuration field.
-        /// </summary>
-        /// <typeparam name="TType">The type of the configuration.</typeparam>
-        /// <param name="func">The property.</param>
-        /// <returns>
-        /// The configuration field.
-        /// </returns>
-        public IConfigurationField Get<TType>(Expression<Func<TType, IConfigurationField>> func) where TType : class
-        {
-            return this.Get<TType, IConfigurationField>(func);
         }
 
         /// <summary>
@@ -323,7 +234,7 @@
         /// <returns>The start path.</returns>
         protected virtual string GetStartPath()
         {
-            return Sitecore.Context.Site.StartPath;
+            return this.configurationContext.StartPath;
         }
 
         /// <summary>
@@ -332,7 +243,7 @@
         /// <returns>The context database</returns>
         protected virtual Database GetDatabase()
         {
-            return Sitecore.Context.Database;
+            return this.configurationContext.Database;
         }
 
         /// <summary>
@@ -341,7 +252,7 @@
         /// <returns>The container cache key.</returns>
         protected virtual string GetContainerCacheKey()
         {
-            return string.Join("_", Sitecore.Context.Site.Name, Sitecore.Context.Language);
+            return string.Join("_", this.configurationContext.SiteName, this.configurationContext.Language);
         }
 
         /// <summary>
