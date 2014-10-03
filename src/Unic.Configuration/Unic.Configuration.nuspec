@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>Unic.Configuration.Sitecore6</id>
+    <id>Unic.Configuration.Sitecore7</id>
     <version>0.0.0</version>
     <authors>Tobias Studer</authors>
     <owners>Unic AG</owners>
