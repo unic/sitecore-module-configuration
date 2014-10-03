@@ -1,4 +1,4 @@
-﻿namespace Unic.Configuration
+﻿namespace Unic.Configuration.Abstraction
 {
     using Sitecore.Data;
 

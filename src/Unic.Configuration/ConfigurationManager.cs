@@ -9,6 +9,7 @@
     using Sitecore.Data.Items;
     using Sitecore.Diagnostics;
     using Sitecore.SecurityModel;
+    using Unic.Configuration.Abstraction;
     using Unic.Configuration.Exceptions;
     using Unic.Configuration.Extensions;
     using Unic.Configuration.Rules.Conditions;

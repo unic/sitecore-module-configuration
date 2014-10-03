@@ -53,7 +53,7 @@
     <Compile Include="Exceptions\RootItemNotFoundException.cs" />
     <Compile Include="Exceptions\RulesetContainerNotFoundException.cs" />
     <Compile Include="Extensions\ItemExtensions.cs" />
-    <Compile Include="IConfigurationContext.cs" />
+    <Compile Include="Abstraction\IConfigurationContext.cs" />
     <Compile Include="IConfigurationField.cs" />
     <Compile Include="IConfigurationManager.cs" />
     <Compile Include="IRuleset.cs" />
@@ -85,7 +85,7 @@
     <Compile Include="Rules\ConfigurationRuleContext.cs" />
     <Compile Include="Rules\ConfigurationRuleList.cs" />
     <Compile Include="Shell\Applications\ContentEditor\FieldTypes\QueryableTreeList.cs" />
-    <Compile Include="SitecoreConfigurationContext.cs" />
+    <Compile Include="Abstraction\SitecoreConfigurationContext.cs" />
     <Compile Include="TypeResolver.cs" />
     <Compile Include="Rules\IRuleValidator.cs" />
     <Compile Include="Rules\RuleValidator.cs" />
