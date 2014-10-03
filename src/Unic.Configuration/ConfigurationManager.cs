@@ -266,10 +266,13 @@
             var container = this.GetRootRulesetContainer();
             Profiling.Profiler.OnEnd(this, ProfileGetRootRulesetContainerEventName);
 
+            var propertyName = GetConfigurationPropertyName(func);
+            var eventName = string.Format("{0} for {1}", ProfileGetConfigurationValueEventName, propertyName);
+
             // get the configuration value
-            Profiling.Profiler.OnStart(this, ProfileGetConfigurationValueEventName);
+            Profiling.Profiler.OnStart(this, eventName);
             var value = this.GetConfigurationValue(func, container);
-            Profiling.Profiler.OnEnd(this, ProfileGetConfigurationValueEventName);
+            Profiling.Profiler.OnEnd(this, eventName);
 
             Profiling.Profiler.OnEnd(this, ProfileGetConfigurationEventName);
             return value;
