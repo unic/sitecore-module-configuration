@@ -20,6 +20,21 @@
     public class ConfigurationManager : IConfigurationManager
     {
         /// <summary>
+        /// The profile get configuration event name
+        /// </summary>
+        private const string ProfileGetConfigurationEventName = "Configuration :: Get Configuration";
+
+        /// <summary>
+        /// The profile get configuration value event name
+        /// </summary>
+        private const string ProfileGetConfigurationValueEventName = "Configuration :: Get Configuration Value";
+
+        /// <summary>
+        /// The profile get root ruleset container event name
+        /// </summary>
+        private const string ProfileGetRootRulesetContainerEventName = "Configuration :: Get Root Ruleset Container";
+
+        /// <summary>
         /// The lock object.
         /// </summary>
         private readonly object lockObject = new object();
@@ -30,6 +45,11 @@
         private readonly Settings settings;
 
         /// <summary>
+        /// The configuration context
+        /// </summary>
+        private readonly IConfigurationContext configurationContext;
+
+        /// <summary>
         /// The root ruleset containers.
         /// </summary>
         private IDictionary<string, IRulesetContainer> rootRulesetContainers;
@@ -37,16 +57,26 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="ConfigurationManager" /> class.
         /// </summary>
-        public ConfigurationManager() : this(TypeResolver.Settings)
+        public ConfigurationManager() : this(new SitecoreConfigurationContext(), TypeResolver.Settings)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ConfigurationManager"/> class.
+        /// </summary>
+        /// <param name="configurationContext">The configuration context.</param>
+        public ConfigurationManager(IConfigurationContext configurationContext) : this(configurationContext, TypeResolver.Settings)
         {
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ConfigurationManager" /> class.
         /// </summary>
+        /// <param name="configurationContext">The configuration context.</param>
         /// <param name="settings">The settings.</param>
-        public ConfigurationManager(Settings settings)
+        public ConfigurationManager(IConfigurationContext configurationContext, Settings settings)
         {
+            this.configurationContext = configurationContext;
             this.settings = settings;
             this.CachingEnabled = true;
         }
@@ -229,11 +259,23 @@
         /// </returns>
         public TValue Get<TType, TValue>(Expression<Func<TType, TValue>> func) where TType : class
         {
+            Profiling.Profiler.OnStart(this, ProfileGetConfigurationEventName);
+
             // get the root ruleset container
+            Profiling.Profiler.OnStart(this, ProfileGetRootRulesetContainerEventName);
             var container = this.GetRootRulesetContainer();
+            Profiling.Profiler.OnEnd(this, ProfileGetRootRulesetContainerEventName);
+
+            var propertyName = GetConfigurationPropertyName(func);
+            var eventName = string.Format("{0} for {1}", ProfileGetConfigurationValueEventName, propertyName);
 
             // get the configuration value
-            return this.GetConfigurationValue(func, container);
+            Profiling.Profiler.OnStart(this, eventName);
+            var value = this.GetConfigurationValue(func, container);
+            Profiling.Profiler.OnEnd(this, eventName);
+
+            Profiling.Profiler.OnEnd(this, ProfileGetConfigurationEventName);
+            return value;
         }
 
         /// <summary>
@@ -323,7 +365,7 @@
         /// <returns>The start path.</returns>
         protected virtual string GetStartPath()
         {
-            return Sitecore.Context.Site.StartPath;
+            return this.configurationContext.StartPath;
         }
 
         /// <summary>
@@ -332,7 +374,7 @@
         /// <returns>The context database</returns>
         protected virtual Database GetDatabase()
         {
-            return Sitecore.Context.Database;
+            return this.configurationContext.Database;
         }
 
         /// <summary>
@@ -341,7 +383,7 @@
         /// <returns>The container cache key.</returns>
         protected virtual string GetContainerCacheKey()
         {
-            return string.Join("_", Sitecore.Context.Site.Name, Sitecore.Context.Language);
+            return string.Join("_", this.configurationContext.SiteName, this.configurationContext.Language);
         }
 
         /// <summary>

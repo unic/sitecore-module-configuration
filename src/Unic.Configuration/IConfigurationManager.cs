@@ -9,7 +9,7 @@
     /// The configuration manager interface.
     /// </summary>
     public interface IConfigurationManager
-    {      
+    {
         /// <summary>
         /// Gets the site root item.
         /// </summary>
