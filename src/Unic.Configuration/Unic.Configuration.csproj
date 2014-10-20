@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Unic.Configuration</RootNamespace>
     <AssemblyName>Unic.Configuration</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
     <TargetFrameworkProfile />
@@ -34,7 +34,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Sitecore.Kernel, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Sitecore.Kernel, Version=7.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\Sitecore.Kernel.dll</HintPath>
     </Reference>
@@ -53,7 +53,7 @@
     <Compile Include="Exceptions\RootItemNotFoundException.cs" />
     <Compile Include="Exceptions\RulesetContainerNotFoundException.cs" />
     <Compile Include="Extensions\ItemExtensions.cs" />
-    <Compile Include="IConfigurationContext.cs" />
+    <Compile Include="Abstraction\IConfigurationContext.cs" />
     <Compile Include="IConfigurationField.cs" />
     <Compile Include="IConfigurationManager.cs" />
     <Compile Include="IRuleset.cs" />
@@ -85,7 +85,7 @@
     <Compile Include="Rules\ConfigurationRuleContext.cs" />
     <Compile Include="Rules\ConfigurationRuleList.cs" />
     <Compile Include="Shell\Applications\ContentEditor\FieldTypes\QueryableTreeList.cs" />
-    <Compile Include="SitecoreConfigurationContext.cs" />
+    <Compile Include="Abstraction\SitecoreConfigurationContext.cs" />
     <Compile Include="TypeResolver.cs" />
     <Compile Include="Rules\IRuleValidator.cs" />
     <Compile Include="Rules\RuleValidator.cs" />

@@ -34,27 +34,20 @@ content-length: 1
 field: {337E20E1-999A-4EEA-85AD-B58A03AE75CC}
 name: Quick Action Bar
 key: quick action bar
-content-length: 38
+content-length: 0
 
-{5780EF66-B4A1-4588-BE97-6D7C62AF7196}
+
 ----field----
 field: {21828437-EA4B-40A1-8C61-4CE60EA41DB6}
 name: Validate Button
 key: validate button
-content-length: 38
+content-length: 0
 
-{5780EF66-B4A1-4588-BE97-6D7C62AF7196}
+
 ----field----
 field: {9C903E29-650D-4AF2-B9BD-526D5C14A1A5}
 name: Validator Bar
 key: validator bar
-content-length: 38
-
-{5780EF66-B4A1-4588-BE97-6D7C62AF7196}
-----field----
-field: {53C432C4-7122-4E2D-8296-DB4184FD1735}
-name: Workflow
-key: workflow
 content-length: 0
 
 
@@ -68,7 +61,7 @@ content-length: 3
 ----version----
 language: en
 version: 1
-revision: 352732fb-2a39-4150-9cf1-41b1b4c85971
+revision: f71f80d3-0f25-4ba2-af01-b949b4449eb8
 
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
@@ -97,14 +90,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-352732fb-2a39-4150-9cf1-41b1b4c85971
+f71f80d3-0f25-4ba2-af01-b949b4449eb8
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 34
 
-20140113T224126:635252496860613302
+20141003T185801:635479594815937220
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
