@@ -9,13 +9,6 @@ master: {00000000-0000-0000-0000-000000000000}
 template: {FCC80608-BEC1-4683-A0DF-30070C2C6E5F}
 templatekey: Ruleset Container
 
-----field----
-field: {19523273-B030-48E8-847F-407108F1353A}
-name: Rulesets
-key: rulesets
-content-length: 0
-
-
 ----version----
 language: en
 version: 1

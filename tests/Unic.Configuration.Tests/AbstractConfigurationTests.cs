@@ -14,7 +14,7 @@
             public void CanSetStringValueOnStringProperty()
             {
                 // arrange
-                var converterMock = new Mock<AbstractConverter<string>>();
+                var converterMock = new Mock<AbstractConverter<string>> { CallBase = true };
                 converterMock.Setup(converter => converter.Convert(It.IsAny<IConfigurationField>()))
                     .Returns((IConfigurationField x) => "Test Value");
 
@@ -32,7 +32,7 @@
             public void CannotSetIntValueOnStringProperty()
             {
                 // arrange
-                var converterMock = new Mock<AbstractConverter<int>>();
+                var converterMock = new Mock<AbstractConverter<int>> { CallBase = true };
                 converterMock.Setup(converter => converter.Convert(It.IsAny<IConfigurationField>()))
                     .Returns((IConfigurationField x) => 1);
 

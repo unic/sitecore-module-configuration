@@ -20,9 +20,9 @@ Rules
 field: {1EB8AE32-E190-44A6-968D-ED904C794EBF}
 name: Source
 key: source
-content-length: 58
+content-length: 84
 
-rulespath=/sitecore/system/Settings/Rules&hideactions=true
+rulespath=/sitecore/system/Settings/Rules/Unic Configuration Module&hideactions=true
 ----field----
 field: {BE351A73-FCB0-4213-93FA-C302D8AB4F51}
 name: Shared
@@ -40,7 +40,7 @@ content-length: 3
 ----version----
 language: en
 version: 1
-revision: 806ee330-e321-4df7-a393-7c583ef693e0
+revision: f641c809-5b0f-4176-b6b5-4bf236fe814d
 
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
@@ -69,14 +69,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-806ee330-e321-4df7-a393-7c583ef693e0
+f641c809-5b0f-4176-b6b5-4bf236fe814d
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 34
 
-20140113T225231:635252503516180009
+20141002T142947:635478569875563149
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
