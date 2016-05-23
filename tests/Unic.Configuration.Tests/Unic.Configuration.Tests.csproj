@@ -63,9 +63,9 @@
     <Compile Include="TypeResolverTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Unic.Configuration\Unic.Configuration.csproj">
+    <ProjectReference Include="..\..\src\Unic.Configuration.Core\Unic.Configuration.Core.csproj">
       <Project>{DAF4DEDE-E1D9-4874-8DD5-846C0DD0B0F8}</Project>
-      <Name>Unic.Configuration</Name>
+      <Name>Unic.Configuration.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

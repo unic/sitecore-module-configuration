@@ -3,7 +3,8 @@
     using System;
     using Moq;
     using NUnit.Framework;
-    using Unic.Configuration.Converter;
+    using Unic.Configuration.Core;
+    using Unic.Configuration.Core.Converter;
 
     public class AbstractConfigurationTests
     {

@@ -1,8 +1,8 @@
 ﻿namespace Unic.Configuration.Tests.Rules.Actions
 {
     using NUnit.Framework;
-    using Unic.Configuration.Rules;
-    using Unic.Configuration.Rules.Actions;
+    using Unic.Configuration.Core.Rules;
+    using Unic.Configuration.Core.Rules.Actions;
 
     public class ConfigurationActionTests
     {
