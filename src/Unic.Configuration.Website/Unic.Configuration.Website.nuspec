@@ -18,6 +18,7 @@
   <files>    
 	<file src="..\..\serialization\**\*.*" target="serialization" />	
 	<file src="App_Config\Include\01_modules\**\*.*" target="content\App_Config\Include\01_modules" />
+	<file src="App_Config\Include\01_modules_author\**\*.*" target="content\App_Config\Include\01_modules_author" />
 	<file src="bin\Unic.Configuration.Website.dll" target="lib\net45" />
   </files>
 </package>
