@@ -101,9 +101,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Config\Include\Serialization.config" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="App_Config\Include\01_modules\Unic.Configuration.config" />
   </ItemGroup>
   <ItemGroup>
