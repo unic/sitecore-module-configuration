@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unic.Configuration", "src\Unic.Configuration\Unic.Configuration.csproj", "{DAF4DEDE-E1D9-4874-8DD5-846C0DD0B0F8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unic.Configuration.Core", "src\Unic.Configuration.Core\Unic.Configuration.Core.csproj", "{DAF4DEDE-E1D9-4874-8DD5-846C0DD0B0F8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{7DAB6735-BCB6-4B47-A887-1E33049EEA58}"
 EndProject

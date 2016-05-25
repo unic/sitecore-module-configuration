@@ -1,6 +1,7 @@
 ﻿namespace Unic.Configuration.Tests
 {
     using NUnit.Framework;
+    using Unic.Configuration.Core;
 
     public class TypeResolverTests
     {

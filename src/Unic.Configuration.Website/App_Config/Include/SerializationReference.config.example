@@ -1,0 +1,8 @@
+﻿<configuration xmlns:patch="http://www.sitecore.net/xmlconfig/" xmlns:set="http://www.sitecore.net/xmlconfig/set/">
+  <sitecore>
+    <sc.variable name="repositoryRoot" set:value="C:\Temp\Unic.Configuration"/>
+    <settings>
+      <setting name="SerializationFolder" set:value="$(repositoryRoot)/serialization/appDefault"/>
+    </settings>
+  </sitecore>
+</configuration>

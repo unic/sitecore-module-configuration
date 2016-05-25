@@ -2,6 +2,7 @@
 {
     using System;
     using NUnit.Framework;
+    using Unic.Configuration.Core;
 
     public class ConfigurationFactoryTests
     {

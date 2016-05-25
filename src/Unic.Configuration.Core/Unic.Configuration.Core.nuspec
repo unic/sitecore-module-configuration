@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Unic.Configuration.Core</id>
+    <version>0.0.0</version>
+    <authors>Tobias Studer</authors>
+    <owners>Unic AG</owners>
+    <projectUrl>https://git.unic.com/projects/BUECS/repos/sitecore-module-configuration/</projectUrl>
+    <iconUrl>https://www.unic.com/img/unic-logo.jpg</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A rule based configuration framework for Sitecore</description>
+    <copyright>Copyright 2016 Unic AG</copyright>
+    <tags>Sitecore Unic Configuration</tags>
+  </metadata>
+  <files>
+	<file src="bin\$configuration$\Unic.Configuration.Core.dll" target="lib\net45" />	
+  </files>
+</package>
