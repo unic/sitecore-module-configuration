@@ -1,20 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unic.Configuration", "src\Unic.Configuration\Unic.Configuration.csproj", "{DAF4DEDE-E1D9-4874-8DD5-846C0DD0B0F8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unic.Configuration.Core", "src\Unic.Configuration.Core\Unic.Configuration.Core.csproj", "{DAF4DEDE-E1D9-4874-8DD5-846C0DD0B0F8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{7DAB6735-BCB6-4B47-A887-1E33049EEA58}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unic.Configuration.Tests", "tests\Unic.Configuration.Tests\Unic.Configuration.Tests.csproj", "{C8D54127-B847-428E-9263-1220545269E1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unic.Configuration.Website", "src\Unic.Configuration.Website\Unic.Configuration.Website.csproj", "{A8FE5357-EEFB-47B8-AC8A-DDA757DA8D27}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{E6ADE615-9070-4E82-999D-6CBBA788634F}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\packages.config = .nuget\packages.config
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

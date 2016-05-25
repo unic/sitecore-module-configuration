@@ -4,8 +4,9 @@
     using System.Collections.Generic;
     using NUnit.Framework;
     using Sitecore.Data.Items;
-    using Unic.Configuration.Converter;
-    using Unic.Configuration.Exceptions;
+    using Unic.Configuration.Core;
+    using Unic.Configuration.Core.Converter;
+    using Unic.Configuration.Core.Exceptions;
 
     public class ConverterFactoryFacts
     {
