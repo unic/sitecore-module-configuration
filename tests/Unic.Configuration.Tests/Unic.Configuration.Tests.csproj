@@ -44,7 +44,7 @@
     </Reference>
     <Reference Include="Sitecore.Kernel, Version=7.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\Sitecore.Kernel.dll</HintPath>
+      <HintPath>..\..\packages\Sitecore.Kernel.NoReferences.7.2.140526\lib\NET45\Sitecore.Kernel.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -64,7 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\Unic.Configuration.Core\Unic.Configuration.Core.csproj">
-      <Project>{DAF4DEDE-E1D9-4874-8DD5-846C0DD0B0F8}</Project>
+      <Project>{daf4dede-e1d9-4874-8dd5-846c0dd0b0f8}</Project>
       <Name>Unic.Configuration.Core</Name>
     </ProjectReference>
   </ItemGroup>
