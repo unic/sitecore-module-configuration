@@ -1,18 +1,17 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>Unic.Configuration</id>
-    <version>0.0.0.0</version>
+    <id>Unic.Configuration.Website</id>
+    <version>$VERSION$</version>
     <authors>Tobias Studer</authors>
     <owners>Unic AG</owners>
-    <projectUrl>https://git.unic.com/projects/BUECS/repos/sitecore-module-configuration/</projectUrl>
-    <iconUrl>https://www.unic.com/img/unic-logo.jpg</iconUrl>
+    <projectUrl>https://github.com/unic/sitecore-module-configuration/</projectUrl>
+    <iconUrl>https://github.com/unic/unic/raw/master/unic_nuget.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A rule based configuration framework for Sitecore</description>
-    <copyright>Copyright 2016 Unic AG</copyright>
     <tags>Sitecore Unic Configuration</tags>
 	<dependencies>
-        <dependency id="Unic.Configuration.Core" version="$NuGetVersion$" />
+        <dependency id="Unic.Configuration.Core" version="$VERSION$" />
     </dependencies> 
   </metadata>
   <files>    
