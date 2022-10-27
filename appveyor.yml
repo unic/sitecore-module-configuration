@@ -40,7 +40,7 @@ after_build:
   - cmd: appveyor PushArtifact "Unic.Configuration.Core.%GitVersion_NuGetVersionV2%.nupkg"
 
   - cmd: nuget pack .\src\Unic.Configuration.Website\Unic.Configuration.Website.csproj -version "%GitVersion_NuGetVersionV2%" -prop "target=%CONFIGURATION%"
-  - cmd: appveyor PushArtifact "Unic.Configuration.Website.%GitVersion_NuGetVersionV2%.nupkg"
+  - cmd: appveyor PushArtifact "Unic.Configuration.%GitVersion_NuGetVersionV2%.nupkg"
    
 deploy:
   - provider: Environment

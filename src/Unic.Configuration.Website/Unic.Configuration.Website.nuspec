@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>Unic.Configuration.Website</id>
+    <id>Unic.Configuration</id>
     <version>$VERSION$</version>
     <authors>Tobias Studer</authors>
     <owners>Unic AG</owners>
