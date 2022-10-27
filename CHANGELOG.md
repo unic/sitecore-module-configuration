@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## 4.0.1
+
+- Revert name change of Unic.Configuration.Website's NugetPackage
+
 ## 4.0
 
 - Migration to GitHub public repository, AppVeyor and NuGet.org
